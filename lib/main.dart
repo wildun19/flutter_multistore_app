@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_bloc_example/bloc/categories/categories_bloc.dart';
+import 'package:flutter_bloc_example/bloc/logout/logout_bloc.dart';
+import 'package:flutter_bloc_example/bloc/products/products_bloc.dart';
+import 'package:flutter_bloc_example/data/datasources/auth_local_datasource.dart';
+import 'package:flutter_bloc_example/pages/auth/auth_page.dart';
+import 'package:flutter_bloc_example/pages/dashboard/dashboard_page.dart';
+import 'package:flutter_bloc_example/pages/splash/splash_page.dart';
+import 'package:flutter_bloc_example/utils/light_theme.dart';
 
 import 'bloc/login/login_bloc.dart';
-import 'bloc/logout/logout_bloc.dart';
 import 'bloc/register/register_bloc.dart';
-import 'data/datasources/auth_local_datasource.dart';
-import 'pages/auth/auth_page.dart';
-import 'pages/dashboard/dashboard_page.dart';
-import 'utils/light_theme.dart';
 
 void main() {
   runApp(const MyApp());
@@ -28,6 +31,12 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => LogoutBloc(),
+        ),
+        BlocProvider(
+          create: (context) => ProductsBloc(),
+        ),
+        BlocProvider(
+          create: (context) => CategoriesBloc(),
         ),
       ],
       child: MaterialApp(
