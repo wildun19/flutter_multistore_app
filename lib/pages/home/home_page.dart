@@ -170,8 +170,7 @@ class _HomePageState extends State<HomePage> {
                         padding: EdgeInsets.symmetric(
                             horizontal: Dimensions.paddingSizeExtraSmall,
                             vertical: Dimensions.paddingSizeExtraSmall),
-                        child: Row(children: [
-                          Expanded(child: Text('Products', style: titleHeader)),
+                        child: Row(children: [Expanded(child: Text('Products', style: titleHeader)),
                         ]),
                       ),
                       const SizedBox(height: Dimensions.homePagePadding),
