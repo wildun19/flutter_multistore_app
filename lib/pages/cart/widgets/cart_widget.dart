@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:flutter_bloc_example/bloc/checkout/checkout_bloc.dart';
 import 'package:flutter_bloc_example/utils/price_ext.dart';
@@ -86,7 +87,13 @@ class CartWidget extends StatelessWidget {
                             width: Dimensions.paddingSizeSmall,
                           ),
                           InkWell(
-                            onTap: () {},
+                            onTap: () {
+                              context.read<CheckoutBloc>().add(
+                                    CheckoutEvent.removeToCart(
+                                        productQuantity.product,
+                                        productQuantity.quantity),
+                                  );
+                            },
                             child: SizedBox(
                                 width: 20,
                                 height: 20,
